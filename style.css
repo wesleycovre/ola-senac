@@ -1,0 +1,385 @@
+/* CORES
+
+	Preto: #272822 - #5A5B55 (-20%)
+	Branco: #F8F8F2
+	Cinza: #75715E
+	Rosa: #F92672 - #D3004C (+15%)
+	AZUL: #66D9EF - #40B3C9 (+15%) - #1A8DA3 (+30%)
+	Verde: #A6E22E - #80BC08 (+15%)
+	LARANJA: #FD971F - #D77100 (+15%) - [#FFB139 (-10%) #FFA42C (-5%) - #F08A12 (+5%) - #E47E06 (+10%)]
+	Amarelo: #E6DB74 - #C0B54E (+15%)
+	Roxo: #AE81FF
+	Azul Escuro: #0000FF
+
+*/
+
+* {	box-sizing: border-box; }
+
+body {
+	overflow-x: hidden;
+	font-family: Consolas, monospace;
+	color: #F8F8F2;
+	background-color: #272822;
+}
+
+a {
+	text-decoration: none;
+	color: #F8F8F2;
+}
+
+a.underline { text-decoration: underline; }
+
+a.underline:hover { text-decoration: none; }
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+@font-face {
+	font-family: "Trebuchet MS";
+	src: url("font/trebuc-webfont.eot");
+	src: url("font/trebuc-webfont.eot?#iefix") format("embedded-opentype"),
+		 url("font/trebuc-webfont.woff2") format("woff2"),
+		 url("font/trebuc-webfont.woff") format("woff"),
+		 url("font/trebuc-webfont.ttf") format("truetype"),
+		 url("font/trebuc-webfont.svg#trebuchet_msregular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Consolas;
+	src: url("font/consola-webfont.eot");
+	src: url("font/consola-webfont.eot?#iefix") format("embedded-opentype"),
+		 url("font/consola-webfont.woff2") format("woff2"),
+		 url("font/consola-webfont.woff") format("woff"),
+		 url("font/consola-webfont.ttf") format("truetype"),
+		 url("font/consola-webfont.svg#consolasregular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* MENU ********************************************************* */
+
+@media only screen and (min-width: 641px) {
+	nav {
+		position: fixed;
+		width: 200px;
+		height: 100%;
+		padding-top: 20px;
+		background-color: #5A5B55;
+	}
+	
+	nav li.rosa_f:hover {
+		background-color: #F92672;
+		-webkit-transition: background-color 250ms;
+				transition: background-color 250ms;
+	}
+	
+	nav li.verde_f:hover {
+		background-color: #A6E22E;
+		-webkit-transition: background-color 250ms;
+				transition: background-color 250ms;
+	}
+	
+	nav li.laranja_f:hover {
+		background-color: #FD971F;
+		-webkit-transition: background-color 250ms;
+				transition: background-color 250ms;
+	}
+	
+	nav li.azul_f:hover {
+		background-color: #66D9EF;
+		-webkit-transition: background-color 250ms;
+				transition: background-color 250ms;
+	}
+	
+	nav a { padding: 0 30px; }
+	
+	nav li.menu_gatilho { display: none; }
+}
+
+@media only screen and (max-width: 640px) {
+	nav {
+		position: absolute;
+		top: -200px;
+		width: 100%;
+		background-color: #5A5B55;
+		-ms-transform: translateY(0);
+		-webkit-transform: translate3d(0, 0, 0) translateY(0);
+				transform: translate3d(0, 0, 0) translateY(0);
+		-webkit-transition: transform 250ms;
+				transition: transform 250ms;
+	}
+	
+	.menu_ativo nav {
+		-ms-transform: translateY(200px);
+		-webkit-transform: translate3d(0, 0, 0) translateY(200px);
+				transform: translate3d(0, 0, 0) translateY(200px);
+	}
+	
+	nav a { text-align: center; }
+	
+	nav li.menu_gatilho {
+		cursor: pointer;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		font-size: 0;
+	}
+	
+	li.menu_gatilho span {
+		font-family: "Trebuchet MS", sans-serif;
+		font-size: 20px;
+	}
+	
+	li.menu_gatilho div.container {
+		display: inline-block;
+		position: relative;
+		width: 28px;
+		height: 16px;
+		font-size: 16px;
+	}
+	
+	i.fa-bars,
+	i.fa-long-arrow-down {
+		position: absolute;
+		left: 0;
+	}
+	
+	i.fa-bars { top: 2px; }
+	
+	i.fa-bars {
+		opacity: 1;
+		-ms-transform: rotate(0deg);
+		-webkit-transform: translate3d(0, 0, 0) rotate(0deg);
+				transform: translate3d(0, 0, 0) rotate(0deg);
+		-webkit-transition: all 250ms 250ms;
+				transition: all 250ms 250ms;
+	}
+	
+	i.fa-long-arrow-down {
+		opacity: 0;
+		-ms-transform: rotate(0deg);
+		-webkit-transform: translate3d(0, 0, 0) rotate(0deg);
+				transform: translate3d(0, 0, 0) rotate(0deg);
+		-webkit-transition: all 250ms 250ms;
+				transition: all 250ms 250ms;
+	}
+	
+	.menu_ativo i.fa-bars {
+		opacity: 0;
+		-ms-transform: rotate(180deg);
+		-webkit-transform: translate3d(0, 0, 0) rotate(180deg);
+				transform: translate3d(0, 0, 0) rotate(180deg);
+	}
+	
+	.menu_ativo i.fa-long-arrow-down {
+		opacity: 1;
+		-ms-transform: rotate(180deg);
+		-webkit-transform: translate3d(0, 0, 0) rotate(180deg);
+				transform: translate3d(0, 0, 0) rotate(180deg);
+	}
+}
+
+nav a {
+	display: block;
+	line-height: 50px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 20px;
+}
+
+/* CONTEÚDO ***************************************************** */
+
+section { margin-left: 200px; }
+
+@media only screen and (max-width: 640px) {
+	section {
+		margin: 50px 0 0 0;
+		-ms-transform: translateY(0);
+		-webkit-transform: translate3d(0, 0, 0) translateY(0);
+				transform: translate3d(0, 0, 0) translateY(0);
+		-webkit-transition: transform 250ms;
+				transition: transform 250ms;
+	}
+
+	.menu_ativo section {
+		-ms-transform: translateY(200px);
+		-webkit-transform: translate3d(0, 0, 0) translateY(200px);
+				transform: translate3d(0, 0, 0) translateY(200px);
+	}
+}
+
+article { padding: 20px 30px 60px 30px; }
+
+p.h1 {
+	margin: 0 0 30px 0;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 60px;
+}
+
+td.n_linha {
+	vertical-align: top;
+	padding-right: 16px;
+}
+
+.rosa { color: #F92672; }
+.azul { color: #66D9EF; }
+.verde { color: #A6E22E; }
+.laranja { color: #FD971F; }
+.azul_escuro { color: #0000FF; }
+.amarelo { color: #E6DB74; }
+.roxo { color: #AE81FF; }
+
+img { max-width: 710px; }
+
+p.legenda {
+	max-width: 710px;
+	text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+	img { width: 100%; }
+	p.legenda { width: 100%; }
+}
+
+a.botao {
+	display: inline-block;
+	box-sizing: content-box;
+	line-height: 46px;
+	padding: 0 15px;
+	background-color: #66D9EF;
+	border-bottom: 4px solid #1A8DA3;
+	border-radius: 5px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+
+a.botao:active {
+	position: relative;
+	top: 4px;
+	background-color: #40B3C9;
+	border-bottom: 0;
+	margin-bottom: 4px;
+}
+
+@media only screen and (min-width: 641px) {
+	a.botao:hover {
+		-webkit-animation: shake 500ms;
+				animation: shake 500ms;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	a.botao { display: block; }
+}
+
+@-webkit-keyframes shake {
+	0%,
+	100% {
+	-webkit-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+	}
+
+	20% {
+	-webkit-transform: translate3d(-10px, 0, 0);
+			transform: translate3d(-10px, 0, 0);
+	}
+
+	40% {
+	-webkit-transform: translate3d(8px, 0, 0);
+			transform: translate3d(8px, 0, 0);
+	}
+
+	60% {
+	-webkit-transform: translate3d(-6px, 0, 0);
+			transform: translate3d(-6px, 0, 0);
+	}
+
+	80% {
+	-webkit-transform: translate3d(4px, 0, 0);
+			transform: translate3d(4px, 0, 0);
+	}
+}
+
+@keyframes shake {
+	0%,
+	100% {
+	-webkit-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+	}
+
+	20% {
+	-webkit-transform: translate3d(-10px, 0, 0);
+			transform: translate3d(-10px, 0, 0);
+	}
+
+	40% {
+	-webkit-transform: translate3d(8px, 0, 0);
+			transform: translate3d(8px, 0, 0);
+	}
+
+	60% {
+	-webkit-transform: translate3d(-6px, 0, 0);
+			transform: translate3d(-6px, 0, 0);
+	}
+
+	80% {
+	-webkit-transform: translate3d(4px, 0, 0);
+			transform: translate3d(4px, 0, 0);
+	}
+}
+
+/* RODAPÉ ******************************************************* */
+
+footer {
+	padding: 0 30px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 14px;
+	color: #75715E;
+}
+
+footer p {
+	display: inline-block;
+	padding: 16px 0 48px 0;
+	border-top: 1px solid #75715E;
+	margin: 0;
+}
+
+table.caixa {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background-color: #FD971F;
+	color: #F8F8F2;
+	text-align: center;
+	-webkit-animation: anima-popup 2s infinite alternate;
+			animation: anima-popup 2s infinite alternate;
+}
+
+@-webkit-keyframes anima-popup {
+	from { background-color: #FFB139; }
+	to { background-color: #E47E06; }
+}
+
+@keyframes anima-popup {
+	from { background-color: #FFB139; }
+	to { background-color: #E47E06; }
+}
+
+td.texto {
+	padding: 6px 0 6px 12px;
+}
+
+td.seta {
+	padding: 6px 12px;
+	font-size: 30px;
+}
+
+@media only screen and (max-width: 1024px) {
+	table.caixa { display: none; }
+}
